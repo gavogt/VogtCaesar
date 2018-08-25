@@ -101,24 +101,24 @@ namespace Practice_Caesar2
         {
             char[] messageEncDecry = default;
             char[] encryptedMessage = default;
-            int shifted = default;
+            string newMessage = default;
 
             messageEncDecry = message.ToCharArray();
 
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
-                shifted = (i - shifted);
-                messageEncDecry[i] = messageEncDecry[shifted];
 
             }
 
-            /*
-            for (int i = 0; i < messageEncDecry.Length; i++)
+            try
             {
-                Console.Write(messageEncDecry[i]);
-            }*/
 
-            Console.WriteLine(messageEncDecry);
+            }
+            catch
+            {
+                Console.WriteLine("Broken");
+            }
+
             return message;
 
         }
