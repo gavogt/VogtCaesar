@@ -41,7 +41,7 @@ namespace Practice_Caesar2
         /// </summary>
         /// <param name="message">String variable to pass in</param>
         /// <param name="shift">How many shifts of the character</param>
-        /// <returns></returns>
+        /// <returns>An encrypted message</returns>
         public static string Encrypt(string message, int shift)
         {
             char[] messageEncDecry = default;
@@ -64,7 +64,7 @@ namespace Practice_Caesar2
         /// </summary>
         /// <param name="message">String variable to pass in</param>
         /// <param name="shift">How many shifts of the character</param>
-        /// <returns></returns>
+        /// <returns>A decrypted message</returns>
         public static string Decrypt(string message, int shift)
         {
             return "";
