@@ -100,12 +100,17 @@ namespace Practice_Caesar2
         public static string Encrypt(string message, int shift)
         {
             char[] messageEncDecry = default;
+            char[] encryptedMessage = default;
+            int shifted = default;
 
             messageEncDecry = message.ToCharArray();
 
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
                 Console.WriteLine(i);
+                shifted = (i - shift);
+                Console.WriteLine(shifted);
+                //encryptedMessage = Convert.ToBase64CharArray();
             }
 
             Console.WriteLine(message);
