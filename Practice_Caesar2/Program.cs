@@ -97,30 +97,29 @@ namespace Practice_Caesar2
         /// <param name="message">String variable to pass in</param>
         /// <param name="shift">How many shifts of the character</param>
         /// <returns>An encrypted message</returns>
-        public static string Encrypt(string message, int shift)
+        public static void Encrypt(string message, int shift)
         {
             char[] messageEncDecry = default;
-            char[] encryptedMessage = default;
-            string newMessage = default;
 
             messageEncDecry = message.ToCharArray();
 
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
-
+                char ch = messageEncDecry[i];
+                ch = (char)(ch + shift);
+                messageEncDecry[i] = ch;
             }
 
             try
             {
+                Console.WriteLine(messageEncDecry);
 
             }
             catch
             {
                 Console.WriteLine("Broken");
+
             }
-
-            return message;
-
         }
         #endregion
 
@@ -131,11 +130,29 @@ namespace Practice_Caesar2
         /// <param name="message">String variable to pass in</param>
         /// <param name="shift">How many shifts of the character</param>
         /// <returns>A decrypted message</returns>
-        public static string Decrypt(string message, int shift)
+        public static void Decrypt(string message, int shift)
         {
-            Console.WriteLine(message);
-            return message;
+            char[] messageEncDecry = default;
 
+            messageEncDecry = message.ToCharArray();
+
+            for (int i = 0; i < messageEncDecry.Length; i++)
+            {
+                char ch = messageEncDecry[i];
+                ch = (char)(ch - shift);
+                messageEncDecry[i] = ch;
+            }
+
+            try
+            {
+                Console.WriteLine(messageEncDecry);
+
+            }
+            catch
+            {
+                Console.WriteLine("Broken");
+
+            }
         }
         #endregion
 
