@@ -18,14 +18,29 @@ namespace Practice_Caesar2
             DisplayWelcome();
             DisplayOptions();
 
-            // Bad design?
-            try
+            while (optionSelection > 3 || optionSelection < 1)
             {
-                optionSelection = Convert.ToInt32(Console.ReadLine());
-            }
-            catch
-            {
-                DisplayError();
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("\nPlease enter your option: ");
+                    optionSelection = Convert.ToInt32(Console.ReadLine());
+                    Console.BackgroundColor = ConsoleColor.Black;
+
+                    if (optionSelection > 3 || optionSelection < 1)
+                    {
+                        DisplayErrorValidSelection();
+
+                    }
+
+                }
+                catch
+                {
+                    DisplayError();
+                    DisplayOptions();
+
+                }
             }
 
             // Console color change
@@ -39,10 +54,12 @@ namespace Practice_Caesar2
             {
                 Console.WriteLine("Please enter the shift amount: ");
                 shift = Convert.ToInt32(Console.ReadLine());
+
             }
             catch
             {
                 DisplayError();
+
             }
         }
 
@@ -89,7 +106,7 @@ namespace Practice_Caesar2
         /// </summary>
         public static void DisplayWelcome()
         {
-            Console.WriteLine("**********************"+"\n* Welcome to Caesar! *"+ "\n**********************");
+            Console.WriteLine("**********************" + "\n* Welcome to Caesar! *" + "\n**********************");
 
         }
         #endregion
@@ -115,9 +132,31 @@ namespace Practice_Caesar2
         public static void DisplayError()
         {
             // Error message with a color change!
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            ChangeConsoleToRed();
             Console.WriteLine("Error! Please try again");
 
+        }
+        #endregion
+
+        #region ErrorDisplayValidNumber
+        /// <summary>
+        /// Provide an enter for selection between 1 and 3
+        /// </summary>
+        public static void DisplayErrorValidSelection()
+        {
+            ChangeConsoleToRed();
+            Console.WriteLine("Error! Please enter a number between 1 and 3");
+
+        }
+        #endregion
+
+        #region DisplayRed
+        /// <summary>
+        /// Change the color to red
+        /// </summary>
+        public static void ChangeConsoleToRed()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
         }
         #endregion
     }
