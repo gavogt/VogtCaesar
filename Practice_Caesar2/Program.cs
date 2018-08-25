@@ -108,15 +108,16 @@ namespace Practice_Caesar2
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
                 shifted = (i - shifted);
-                Console.WriteLine(shifted);
                 messageEncDecry[i] = messageEncDecry[shifted];
 
             }
 
+            /*
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
                 Console.Write(messageEncDecry[i]);
-            }
+            }*/
+
             Console.WriteLine(messageEncDecry);
             return message;
 
