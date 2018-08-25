@@ -18,6 +18,8 @@ namespace Practice_Caesar2
             DisplayWelcome();
             DisplayOptions();
 
+            ChangeConsoleToMagenta();
+
             while (optionSelection > 3 || optionSelection < 1)
             {
                 try
@@ -43,23 +45,48 @@ namespace Practice_Caesar2
                 }
             }
 
-            // Console color change
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
-            Console.WriteLine("\nPlease enter your message to be encrypted: ");
-            message = Console.ReadLine();
-
-            // Bad design?
-            try
+            switch (optionSelection)
             {
-                Console.WriteLine("Please enter the shift amount: ");
-                shift = Convert.ToInt32(Console.ReadLine());
+                case 1:
+                    try
+                    {
+                        Console.WriteLine("\nPlease enter your message to be encrypted: ");
+                        message = Console.ReadLine();
 
-            }
-            catch
-            {
-                DisplayError();
+                        Console.WriteLine("Please enter the shift amount: ");
+                        shift = Convert.ToInt32(Console.ReadLine());
 
+                    }
+                    catch
+                    {
+                        DisplayError();
+
+                    }
+                    Encrypt(message, shift);
+                    break;
+                case 2:
+                    try
+                    {
+                        Console.WriteLine("\nPlease enter your message to be decrypted: ");
+                        message = Console.ReadLine();
+
+                        Console.WriteLine("Please enter the shift amount: ");
+                        shift = Convert.ToInt32(Console.ReadLine());
+
+                    }
+                    catch
+                    {
+                        DisplayError();
+
+                    }
+                    Decrypt(message, shift);
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("The light is broken inside but I still work");
+                    break;
             }
         }
 
@@ -81,7 +108,8 @@ namespace Practice_Caesar2
                 Console.WriteLine(i);
             }
 
-            return "";
+            Console.WriteLine(message);
+            return message;
 
         }
         #endregion
@@ -95,7 +123,8 @@ namespace Practice_Caesar2
         /// <returns>A decrypted message</returns>
         public static string Decrypt(string message, int shift)
         {
-            return "";
+            Console.WriteLine(message);
+            return message;
 
         }
         #endregion
@@ -157,7 +186,20 @@ namespace Practice_Caesar2
         public static void ChangeConsoleToRed()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
+
         }
         #endregion
+
+        #region DisplayMagenta
+        /// <summary>
+        /// Change the color to magenta
+        /// </summary>
+        public static void ChangeConsoleToMagenta()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+
+        }
+        #endregion
+
     }
 }
