@@ -107,13 +107,17 @@ namespace Practice_Caesar2
 
             for (int i = 0; i < messageEncDecry.Length; i++)
             {
-                Console.WriteLine(i);
-                shifted = (i - shift);
+                shifted = (i - shifted);
                 Console.WriteLine(shifted);
-                //encryptedMessage = Convert.ToBase64CharArray();
+                messageEncDecry[i] = messageEncDecry[shifted];
+
             }
 
-            Console.WriteLine(message);
+            for (int i = 0; i < messageEncDecry.Length; i++)
+            {
+                Console.Write(messageEncDecry[i]);
+            }
+            Console.WriteLine(messageEncDecry);
             return message;
 
         }
